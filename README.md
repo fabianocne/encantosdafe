@@ -107,6 +107,22 @@ O site é totalmente responsivo e otimizado para:
 - ✅ Safari (últimas versões)
 - ✅ Opera (últimas versões)
 
+## 🚀 Deploy
+
+### Servidor Apache
+O projeto está pronto para deploy em servidor Apache. Veja o guia completo: **[DEPLOY.md](DEPLOY.md)**
+
+**Arquivos incluídos:**
+- ✅ `.htaccess` - Configurações Apache (gzip, cache, segurança)
+- ✅ `robots.txt` - SEO para motores de busca
+- ✅ Meta tags completas (Open Graph, Twitter Cards)
+
+### Hospedagens Alternativas
+- **Netlify:** Arraste o arquivo `index.html`
+- **Vercel:** `vercel --prod`
+- **GitHub Pages:** Push para branch `gh-pages`
+- **Cloudflare Pages:** Deploy via dashboard
+
 ## 📞 Contato
 
 - **WhatsApp:** (44) 9122-0092

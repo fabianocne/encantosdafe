@@ -1,0 +1,13 @@
+# robots.txt para Encantos da Fé
+# Permite que todos os motores de busca indexem o site
+
+User-agent: *
+Allow: /
+
+# Bloquear arquivos sensíveis
+Disallow: /.git/
+Disallow: /.gitignore
+Disallow: /README.md
+
+# Sitemap (criar depois se necessário)
+# Sitemap: https://seudominio.com.br/sitemap.xml
