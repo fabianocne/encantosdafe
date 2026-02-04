@@ -37,6 +37,9 @@
     <meta name="theme-color" content="#B08D57">
     <meta name="msapplication-TileColor" content="#B08D57">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
     <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -764,6 +767,53 @@
                 text-align: left;
             }
         }
+
+        /* Product Cards Hover */
+        .product-card {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1.5rem;
+            color: white;
+        }
+
+        .product-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-card-desc {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -771,7 +821,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <div>
-                <img src="encantos da fé oficial.jpg" alt="Encantos da Fé" id="navbar-logo">
+                <img src="logo-placeholder.svg" alt="Encantos da Fé" id="navbar-logo">
             </div>
             <button id="nav-cta-btn" class="btn-light" onclick="scrollToForm()">
                 Falar com a equipe
@@ -829,7 +879,7 @@
                 <!-- Image Content -->
                 <div class="hero-image-container reveal">
                     <div class="hero-image-wrapper">
-                        <img src="catálogo sao josé.jpg" alt="Catálogo São José - Artigos Religiosos">
+                        <img src="terco-cristal-mao.jpg" alt="Catálogo São José - Artigos Religiosos">
                         <div class="hero-image-overlay"></div>
                     </div>
                 </div>
@@ -842,7 +892,7 @@
         <div class="container">
             <div class="why-grid">
                 <div class="why-image reveal">
-                    <img src="https://picsum.photos/800/1000?grayscale&blur=1" alt="Imagem ilustrativa de São José">
+                    <img src="colecao-tercos-sao-jose.jpg" alt="Coleção de Terços de São José">
                 </div>
 
                 <div>
@@ -921,6 +971,51 @@
                     <h3>Orientação de Venda</h3>
                     <p>Dicas rápidas de exposição para valorizar as peças na sua loja.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Showcase -->
+    <section>
+        <div class="container">
+            <div class="text-center">
+                <h2 class="font-serif reveal">Conheça Nossa Coleção</h2>
+                <p class="section-description reveal" style="max-width: 42rem; margin: 0 auto 3rem;">
+                    Variedade de terços, dezenas e artigos religiosos de São José para todos os gostos e perfis de clientes.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div class="reveal product-card">
+                    <img src="terco-dezena-dourado.jpg" alt="Dezena Retrovisor Dourado">
+                    <div class="product-card-overlay">
+                        <h3 class="product-card-title">Dezena Retrovisor</h3>
+                        <p class="product-card-desc">Dourado com contas lapidadas</p>
+                    </div>
+                </div>
+
+                <div class="reveal product-card">
+                    <img src="terco-pulso-madeira-preta.jpg" alt="Terço de Pulso Madeira Preta">
+                    <div class="product-card-overlay">
+                        <h3 class="product-card-title">Terço de Pulso</h3>
+                        <p class="product-card-desc">Madeira preta com medalha prata</p>
+                    </div>
+                </div>
+
+                <div class="reveal product-card">
+                    <img src="terco-casal.jpg" alt="Terço do Casal">
+                    <div class="product-card-overlay">
+                        <h3 class="product-card-title">Terço do Casal</h3>
+                        <p class="product-card-desc">Ideal para presente de casamento</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center reveal" style="margin-top: 3rem;">
+                <button onclick="scrollToForm()" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--brand-gold); color: white; font-weight: 500; padding: 0.875rem 2rem; border-radius: 9999px; border: none; cursor: pointer; transition: all 0.3s;">
+                    <i data-lucide="shopping-bag" style="width: 1.25rem; height: 1.25rem;"></i>
+                    Ver Catálogo Completo
+                </button>
             </div>
         </div>
     </section>
@@ -1022,165 +1117,4 @@
 
                     <div class="form-grid two-col">
                         <div class="form-field">
-                            <label>WhatsApp</label>
-                            <input type="tel" name="phone" required placeholder="(00) 00000-0000">
-                        </div>
-                        <div class="form-field">
-                            <label>E-mail</label>
-                            <input type="email" name="email" required placeholder="seu@email.com">
-                        </div>
-                    </div>
-
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" name="terms" id="terms" required>
-                        <label for="terms">Concordo em receber contato da Encantos da Fé por WhatsApp e e-mail.</label>
-                    </div>
-
-                    <button type="submit" class="btn-submit" id="submit-btn">
-                        <i data-lucide="send"></i>
-                        Solicitar Catálogo no WhatsApp
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container-md">
-            <div class="footer-title font-serif">
-                Encantos da Fé<span class="dot">.</span>
-            </div>
-            
-            <div class="footer-info">
-                <p>WhatsApp: <strong>(44) 9122-0092</strong></p>
-                <p>E-mail: <strong>contato.encantosdafe@gmail.com</strong></p>
-                <p style="max-width: 32rem; margin: 0 auto;">Avenida Rio Branco 634 — Zona de Armazém — Cianorte/PR</p>
-            </div>
-
-            <p class="footer-copyright">
-                © <span id="current-year"></span> Encantos da Fé. Todos os direitos reservados.
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Current Year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        const navBtn = document.getElementById('nav-cta-btn');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('scrolled');
-                navBtn.classList.remove('btn-light');
-                navBtn.classList.add('btn-dark');
-            } else {
-                navbar.classList.remove('scrolled');
-                navBtn.classList.remove('btn-dark');
-                navBtn.classList.add('btn-light');
-            }
-        });
-
-        // Smooth scroll to form
-        function scrollToForm() {
-            const element = document.getElementById('solicitar-catalogo');
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Reveal on scroll animation
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // FAQ Toggle
-        let currentOpenFAQ = null;
-
-        function toggleFAQ(index) {
-            const answer = document.getElementById(`faq-answer-${index}`);
-            const icon = document.getElementById(`faq-icon-${index}`);
-            
-            // Close current open FAQ if different
-            if (currentOpenFAQ !== null && currentOpenFAQ !== index) {
-                document.getElementById(`faq-answer-${currentOpenFAQ}`).classList.remove('open');
-                document.getElementById(`faq-icon-${currentOpenFAQ}`).setAttribute('data-lucide', 'plus');
-            }
-            
-            // Toggle current FAQ
-            if (answer.classList.contains('open')) {
-                answer.classList.remove('open');
-                icon.setAttribute('data-lucide', 'plus');
-                currentOpenFAQ = null;
-            } else {
-                answer.classList.add('open');
-                icon.setAttribute('data-lucide', 'minus');
-                currentOpenFAQ = index;
-            }
-            
-            // Refresh icons
-            lucide.createIcons();
-        }
-
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            // Format WhatsApp message
-            const message = `Olá! Quero comprar artigos religiosos católicos no ATACADO para a Campanha de SÃO JOSÉ.
-Nome: ${data.name}
-Empresa: ${data.company}
-CNPJ: ${data.cnpj}
-Cidade/UF: ${data.city}
-WhatsApp: ${data.phone}
-E-mail: ${data.email}`;
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/554491220092?text=${encodedMessage}`;
-            
-            // Open WhatsApp
-            window.open(whatsappUrl, '_blank');
-            
-            // Show success message
-            const formContent = document.getElementById('form-content');
-            formContent.innerHTML = `
-                <div class="success-message">
-                    <div class="success-icon">
-                        <i data-lucide="check-circle" style="width: 2rem; height: 2rem;"></i>
-                    </div>
-                    <h3 class="font-serif">Perfeito!</h3>
-                    <p>Sua mensagem está pronta no WhatsApp.</p>
-                    <button onclick="openWhatsAppAgain('${encodedMessage}')">
-                        Se não abriu, clique aqui.
-                    </button>
-                </div>
-            `;
-            
-            lucide.createIcons();
-        }
-
-        function openWhatsAppAgain(encodedMessage) {
-            const whatsappUrl = `https://wa.me/554491220092?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
-</body>
-</html>
+                            <label>
